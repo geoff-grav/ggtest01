@@ -58,3 +58,8 @@ if(!empty($_GET['del']))
 echo $mc->get('gg').'<br>';
 echo $mc->get('ip');
 
+if(!empty($_GET['stats']))
+{
+    echo '<pre>';print_r($mc->getStats());echo '</pre>';
+}
+
