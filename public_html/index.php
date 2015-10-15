@@ -6,6 +6,7 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
 $mc = new Memcached('mc');
+$mc->setOption(Memcached::OPT_LIBKETAMA_COMPATIBLE, true);
 
 $servers = array(
     array('52.88.250.80', 11211, 10),
