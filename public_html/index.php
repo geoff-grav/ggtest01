@@ -38,6 +38,11 @@ if(!empty($_GET['gg']))
     }
 }
 
+if(!empty($_GET['del']))
+{
+    $mc->delete('gg');
+}
+
 echo $mc->get('gg').'<br>';
 echo $mc->get('ip');
 
