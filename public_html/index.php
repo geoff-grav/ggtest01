@@ -16,7 +16,7 @@ $m->addServers($servers);
 if(!empty($_GET['gg']))
 {
     $m->set('gg', $_GET['gg']);
-    $m->set('ip', $_SERVER['REMOTE_ADDR']);
+    $m->set('ip', $_SERVER['HTTP_HOST']);
 }
 
 echo $m->get('gg').'<br>';
