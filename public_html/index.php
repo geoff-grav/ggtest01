@@ -1,5 +1,7 @@
 <?php
 
+$start = microtime(true);
+
 echo 'Hello<br><br>';
 
 ini_set('error_reporting', E_ALL);
@@ -66,4 +68,6 @@ if(!empty($_GET['stats']))
 {
     echo '<pre>';print_r($mc->getStats());echo '</pre>';
 }
+
+echo '<br>'.number_format((microtime(true)-$start), 8);
 
