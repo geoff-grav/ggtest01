@@ -16,8 +16,8 @@ if($_SERVER['HTTP_HOST'] == '52.88.213.113')
   $servers = array(
     //array('52.88.250.80', 11211)
     //array('172.31.20.208', 11211)
-    //array('52.91.169.15', 11211)
-    array('52.91.157.18', 11211)
+    array('52.91.169.15', 11211)
+    //array('52.91.157.18', 11211)
   );    
 }
 else
@@ -26,8 +26,8 @@ else
   $servers = array(
     //array('172.31.20.86', 11211)
     //array('52.88.250.80', 11211)
-    //array('52.91.169.15', 11211)
-    array('52.91.157.18', 11211)
+    array('52.91.169.15', 11211)
+    //array('52.91.157.18', 11211)
   );    
 }
 
@@ -69,5 +69,5 @@ if(!empty($_GET['stats']))
     echo '<pre>';print_r($mc->getStats());echo '</pre>';
 }
 
-echo '<br>'.number_format((microtime(true)-$start), 8);
+echo '<br>'.number_format((microtime(true)-$start), 3);
 
