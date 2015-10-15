@@ -52,7 +52,7 @@ if(!empty($_GET['gg']))
 
 if(!empty($_GET['del']))
 {
-    $mc->delete('gg');
+    $mc->delete($_GET['del']);
 }
 
 echo $mc->get('gg').'<br>';
