@@ -8,10 +8,22 @@ ini_set('display_errors', 1);
 $mc = new Memcached('mc');
 $mc->setOption(Memcached::OPT_LIBKETAMA_COMPATIBLE, true);
 
-$servers = array(
-    array('52.88.250.80', 11211, 10),
-    array('52.17.214.233', 11211, 90)
-);
+if($_SERVER['HTTP_HOST'] == '52.88.213.113')
+{
+    echo 'SERVER A<br>';
+  $servers = array(
+    array('172.31.20.208', 11211, 70),
+    array('52.17.214.233', 11211, 30)
+  );    
+}
+else
+{
+    echo 'SERVER B<br>';
+  $servers = array(
+    array('172.31.20.86', 11211, 70),
+    array('52.88.250.80', 11211, 30)
+  );    
+}
 
 if (!count($mc->getServerList())) 
 {
