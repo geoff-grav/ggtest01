@@ -5,20 +5,38 @@ echo 'Hello<br><br>';
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
-$m = new Memcached();
+$mc = new Memcached('mc');
 
 $servers = array(
     array('52.88.250.80', 11211, 10),
     array('52.17.214.233', 11211, 90)
 );
-$m->addServers($servers);
+
+if (!count($mc->getServerList())) 
+{
+        $mc->addServers($servers);
+        echo 'Added Servers';
+}
+
+if(!empty($_GET['flush']))
+{
+        $mc->flush();
+}
 
 if(!empty($_GET['gg']))
 {
-    $m->set('gg', $_GET['gg']);
-    $m->set('ip', $_SERVER['HTTP_HOST']);
+    if(isset($_GET['key']))
+    {
+        $mc->setByKey($_GET['key'], 'gg', $_GET['gg']);
+        $mc->setByKey($_GET['key'], 'ip', $_SERVER['HTTP_HOST']);
+    }
+    else
+    {
+        $mc->set('gg', $_GET['gg']);
+        $mc->set('ip', $_SERVER['HTTP_HOST']);
+    }
 }
 
-echo $m->get('gg').'<br>';
-echo $m->get('ip');
+echo $mc->get('gg').'<br>';
+echo $mc->get('ip');
 
