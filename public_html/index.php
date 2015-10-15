@@ -12,16 +12,18 @@ if($_SERVER['HTTP_HOST'] == '52.88.213.113')
 {
     echo 'SERVER A<br>';
   $servers = array(
-    array('172.31.20.208', 11211, 80),
-    array('52.17.214.233', 11211, 20)
+    //array('172.31.20.208', 11211, 80),
+    //array('52.17.214.233', 11211, 20)
+    array('memcacheus.c7qofa.cfg.use1.cache.amazonaws.com', 11211)
   );    
 }
 else
 {
     echo 'SERVER B<br>';
   $servers = array(
-    array('172.31.20.86', 11211, 80),
-    array('52.88.250.80', 11211, 20)
+    //array('172.31.20.86', 11211, 80),
+    //array('52.88.250.80', 11211, 20)
+    array('memcacheus.c7qofa.cfg.use1.cache.amazonaws.com', 11211)
   );    
 }
 
